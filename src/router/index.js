@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Catalog from '@/views/Catalog.vue';
+import Catalog from '../views/Catalog.vue';
 
 
 const router = createRouter({

@@ -1,12 +1,19 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+
+export default productStore = defineStore('products',{
+  state :()=>({
+    products:[]
+  }),
+
+  actions:{
+    fetchProductsFromDB(){
+      fetch('https://fakestoreapi.com/products')
+      .then(res => res.json())
+      .then(json => {
+        this.products = json.products;
+      })
+    }
   }
 
-  return { count, doubleCount, increment }
 })
