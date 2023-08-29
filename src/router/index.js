@@ -10,6 +10,9 @@ const router = createRouter({
       name: 'Catalog',
       component: Catalog
     },
+    {
+      path:'/product/id:',
+    }
    
   ]
 })

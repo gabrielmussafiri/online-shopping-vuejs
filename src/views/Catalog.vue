@@ -4,6 +4,7 @@
 
         <img :src="product.image" alt="">
         <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
         <p>{{ product.category }}</p>
         <p>${{ product.price }}</p>
 
@@ -33,3 +34,22 @@ onMounted(async ()=>{
 })
 
 </script>
+
+<style scoped>
+.products-list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.products{
+    flex-basis: 28%;
+    margin :8px;
+    padding: 16px;
+    box-shadow: 0px 0px 14px 1px #e6e6e6;
+    cursor: pointer;
+}
+.products img{
+    width: 70%;
+}
+</style>
