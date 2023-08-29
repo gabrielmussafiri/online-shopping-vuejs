@@ -1,10 +1,11 @@
 <template>
    <div class="products-list">
-    <div class="products" v-for="product in productStore.products" :key="product.id">
+    <div class="products" v-for="product in store.products" :key="product.id">
+
         <img :src="product.image" alt="">
         <h2>{{ product.title }}</h2>
         <p>{{ product.category }}</p>
-        <p>{{ product.price }}</p>
+        <p>${{ product.price }}</p>
 
     </div>
    </div>
@@ -22,13 +23,13 @@ export default defineComponent({
 import { onMounted } from 'vue';
 import {productsStore} from "../stores/products"
 
-const productStore = productsStore()
+const store = productsStore()
 
 
-onMounted(()=>{
-    console.log('Monted>>>>');
-    productStore.fetchProductsFromDB()
+onMounted(async ()=>{
+    await store.fetchProductsFromDB()
+
+    console.log('Monted>>>>',store.products);
 })
-
 
 </script>
