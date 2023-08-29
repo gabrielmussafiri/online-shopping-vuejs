@@ -1,7 +1,13 @@
 <template>
-    <h1>
-        Catalogue
-    </h1>
+   <div class="products-list">
+    <div class="products" v-for="product in productStore.products" :key="product.id">
+        <img :src="product.image" alt="">
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.category }}</p>
+        <p>{{ product.price }}</p>
+
+    </div>
+   </div>
 </template>
 
 <script>
@@ -14,10 +20,14 @@ export default defineComponent({
 
 <script setup>
 import { onMounted } from 'vue';
+import {productsStore} from "../stores/products"
+
+const productStore = productsStore()
 
 
 onMounted(()=>{
     console.log('Monted>>>>');
+    productStore.fetchProductsFromDB()
 })
 
 

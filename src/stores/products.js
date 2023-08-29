@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 
-export default productStore = defineStore('products',{
+export const productsStore = defineStore('products',{
   state :()=>({
     products:[]
   }),
