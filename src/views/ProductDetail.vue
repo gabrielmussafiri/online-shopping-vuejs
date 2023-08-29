@@ -8,6 +8,8 @@
             <p>{{ selectedProduct.title }}</p>
             <p>{{ selectedProduct.description }}</p>
             <h2>${{ selectedProduct.price }}</h2>
+            <button @click="addToCart">Add to cart</button>
+
         </div>
 
 
@@ -38,6 +40,12 @@ const router = useRouter()
 const selectedProduct = computed(()=>{
     return store.products.find((item)=> item.id === Number(route.params.id))
 })
+
+const addToCart =  ()=>{
+   console.log('test');
+    
+}
+
 
 </script>
 

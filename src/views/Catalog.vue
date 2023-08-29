@@ -10,6 +10,7 @@
         <p>{{ product.description }}</p>
         <p>{{ product.category }}</p>
         <p>${{ product.price }}</p>
+       
 
     </div>
    </div>
@@ -34,6 +35,7 @@ const router = useRouter()
 const goToProductPage = (id)=>{
     router.push({ name:'ProductView', params:{id}})
 }
+
 
 
 
