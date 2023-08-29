@@ -1,6 +1,9 @@
 <template>
    <div class="products-list">
-    <div class="products" v-for="product in store.products" :key="product.id">
+    <div class="products" 
+    v-for="product in store.products" 
+    :key="product.id" 
+    @click="goToProductPage(product.id)">
 
         <img :src="product.image" alt="">
         <h2>{{ product.title }}</h2>
@@ -21,16 +24,22 @@ export default defineComponent({
 </script>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted} from 'vue';
 import {productsStore} from "../stores/products"
+import { useRouter } from 'vue-router';
 
 const store = productsStore()
+const router = useRouter()
+
+const goToProductPage = (id)=>{
+    router.push({ name:'ProductView', params:{id}})
+}
+
 
 
 onMounted(async ()=>{
     await store.fetchProductsFromDB()
 
-    console.log('Monted>>>>',store.products);
 })
 
 </script>
@@ -51,5 +60,7 @@ onMounted(async ()=>{
 }
 .products img{
     width: 70%;
+    height:fit-content;
+    
 }
 </style>
