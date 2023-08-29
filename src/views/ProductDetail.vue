@@ -32,17 +32,16 @@ import { computed } from 'vue';
 import { productsStore } from '../stores/products';
 import { useRoute , useRouter } from 'vue-router';
 
-const store = productsStore()
-
-const route = useRoute()
-const router = useRouter()
+const store = productsStore();
+const route = useRoute();
+const router = useRouter();
 
 const selectedProduct = computed(()=>{
     return store.products.find((item)=> item.id === Number(route.params.id))
 })
 
 const addToCart =  ()=>{
-   console.log('test');
+   store.addToCart(selectedProduct.value);
     
 }
 

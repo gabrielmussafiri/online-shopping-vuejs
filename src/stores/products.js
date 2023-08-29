@@ -16,5 +16,10 @@ export const productsStore = defineStore('products',{
         console.error("Error fetching products:", error);
       }
     }
+  },
+  
+  addToCart(product){
+    this.cart.push(product)
+
   }
 })
